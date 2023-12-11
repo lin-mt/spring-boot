@@ -1,6 +1,7 @@
 package cn.linmt.jooq;
 
-import cn.linmt.jooq.generate.tables.Book;
+import static cn.linmt.jooq.generate.Tables.T_BOOK;
+
 import cn.linmt.jooq.generate.tables.records.BookRecord;
 import lombok.RequiredArgsConstructor;
 import org.jooq.DSLContext;
@@ -21,7 +22,7 @@ public class JooqApplication implements CommandLineRunner {
 
   @Override
   public void run(String... args) {
-    BookRecord bookRecord = dslContext.newRecord(Book.BOOK);
+    BookRecord bookRecord = dslContext.newRecord(T_BOOK);
     bookRecord.setBookName("书名");
     bookRecord.setAuthorId(ULong.valueOf(999L));
     bookRecord.insert();

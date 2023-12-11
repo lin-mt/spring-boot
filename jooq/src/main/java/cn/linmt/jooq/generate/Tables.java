@@ -4,7 +4,7 @@
 package cn.linmt.jooq.generate;
 
 
-import cn.linmt.jooq.generate.tables.Book;
+import cn.linmt.jooq.generate.tables.TableBook;
 
 
 /**
@@ -16,5 +16,5 @@ public class Tables {
     /**
      * The table <code>spring_boot.book</code>.
      */
-    public static final Book BOOK = Book.BOOK;
+    public static final TableBook T_BOOK = TableBook.T_BOOK;
 }

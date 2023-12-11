@@ -4,7 +4,8 @@
 package cn.linmt.jooq.generate.tables.records;
 
 
-import cn.linmt.jooq.generate.tables.Book;
+import cn.linmt.jooq.generate.tables.TableBook;
+import cn.linmt.jooq.generate.tables.pojos.Book;
 
 import java.time.LocalDateTime;
 
@@ -147,37 +148,37 @@ public class BookRecord extends UpdatableRecordImpl<BookRecord> implements Recor
 
     @Override
     public Field<ULong> field1() {
-        return Book.BOOK.ID;
+        return TableBook.T_BOOK.T_ID;
     }
 
     @Override
     public Field<String> field2() {
-        return Book.BOOK.BOOK_NAME;
+        return TableBook.T_BOOK.T_BOOK_NAME;
     }
 
     @Override
     public Field<ULong> field3() {
-        return Book.BOOK.AUTHOR_ID;
+        return TableBook.T_BOOK.T_AUTHOR_ID;
     }
 
     @Override
     public Field<ULong> field4() {
-        return Book.BOOK.CREATED_BY;
+        return TableBook.T_BOOK.T_CREATED_BY;
     }
 
     @Override
     public Field<ULong> field5() {
-        return Book.BOOK.MODIFIED_BY;
+        return TableBook.T_BOOK.T_MODIFIED_BY;
     }
 
     @Override
     public Field<LocalDateTime> field6() {
-        return Book.BOOK.GMT_CREATED;
+        return TableBook.T_BOOK.T_GMT_CREATED;
     }
 
     @Override
     public Field<LocalDateTime> field7() {
-        return Book.BOOK.GMT_MODIFIED;
+        return TableBook.T_BOOK.T_GMT_MODIFIED;
     }
 
     @Override
@@ -312,14 +313,14 @@ public class BookRecord extends UpdatableRecordImpl<BookRecord> implements Recor
      * Create a detached BookRecord
      */
     public BookRecord() {
-        super(Book.BOOK);
+        super(TableBook.T_BOOK);
     }
 
     /**
      * Create a detached, initialised BookRecord
      */
     public BookRecord(ULong id, String bookName, ULong authorId, ULong createdBy, ULong modifiedBy, LocalDateTime gmtCreated, LocalDateTime gmtModified) {
-        super(Book.BOOK);
+        super(TableBook.T_BOOK);
 
         setId(id);
         setBookName(bookName);
@@ -334,8 +335,8 @@ public class BookRecord extends UpdatableRecordImpl<BookRecord> implements Recor
     /**
      * Create a detached, initialised BookRecord
      */
-    public BookRecord(cn.linmt.jooq.generate.tables.pojos.Book value) {
-        super(Book.BOOK);
+    public BookRecord(Book value) {
+        super(TableBook.T_BOOK);
 
         if (value != null) {
             setId(value.getId());

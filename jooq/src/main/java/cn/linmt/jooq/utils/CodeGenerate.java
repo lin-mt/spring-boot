@@ -3,10 +3,10 @@ package cn.linmt.jooq.utils;
 import org.jooq.codegen.GenerationTool;
 import org.jooq.meta.jaxb.Configuration;
 import org.jooq.meta.jaxb.Database;
-import org.jooq.meta.jaxb.ForcedType;
 import org.jooq.meta.jaxb.Generate;
 import org.jooq.meta.jaxb.Generator;
 import org.jooq.meta.jaxb.Jdbc;
+import org.jooq.meta.jaxb.Strategy;
 import org.jooq.meta.jaxb.Target;
 
 /**
@@ -26,25 +26,17 @@ public class CodeGenerate {
                     .withPassword("root93633"))
             .withGenerator(
                 new Generator()
-                    .withGenerate(new Generate().withDaos(true))
+                    .withStrategy(new Strategy().withName("cn.linmt.jooq.utils.GeneratorStrategy"))
+                    .withGenerate(
+                        new Generate()
+                            .withDaos(true)
+                            .withSpringDao(true)
+                            .withSpringAnnotations(true))
                     .withDatabase(
                         new Database()
                             .withName("org.jooq.meta.mysql.MySQLDatabase")
                             .withIncludes(".*")
-                            .withInputSchema("spring_boot")
-                            .withForcedTypes(
-                                new ForcedType()
-                                    .withAuditInsertTimestamp(true)
-                                    .withIncludeExpression("CREATED_BY"),
-                                new ForcedType()
-                                    .withAuditInsertUser(true)
-                                    .withIncludeExpression("MODIFIED_BY"),
-                                new ForcedType()
-                                    .withAuditUpdateTimestamp(true)
-                                    .withIncludeExpression("GMT_CREATE"),
-                                new ForcedType()
-                                    .withAuditUpdateUser(true)
-                                    .withIncludeExpression("GMT_MODIFIED")))
+                            .withInputSchema("spring_boot"))
                     .withTarget(
                         new Target()
                             .withPackageName("cn.linmt.jooq.generate")

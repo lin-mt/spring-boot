@@ -4,7 +4,7 @@
 package cn.linmt.jooq.generate;
 
 
-import cn.linmt.jooq.generate.tables.Book;
+import cn.linmt.jooq.generate.tables.TableBook;
 import cn.linmt.jooq.generate.tables.records.BookRecord;
 
 import org.jooq.TableField;
@@ -24,5 +24,5 @@ public class Keys {
     // UNIQUE and PRIMARY KEY definitions
     // -------------------------------------------------------------------------
 
-    public static final UniqueKey<BookRecord> KEY_BOOK_PRIMARY = Internal.createUniqueKey(Book.BOOK, DSL.name("KEY_book_PRIMARY"), new TableField[] { Book.BOOK.ID }, true);
+    public static final UniqueKey<BookRecord> T_KEY_BOOK_PRIMARY = Internal.createUniqueKey(TableBook.T_BOOK, DSL.name("KEY_book_PRIMARY"), new TableField[] { TableBook.T_BOOK.T_ID }, true);
 }

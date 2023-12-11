@@ -28,7 +28,7 @@ public class DefaultCatalog extends CatalogImpl {
     /**
      * The schema <code>spring_boot</code>.
      */
-    public final SpringBoot SPRING_BOOT = SpringBoot.SPRING_BOOT;
+    public final SpringBoot T_SPRING_BOOT = SpringBoot.T_SPRING_BOOT;
 
     /**
      * No further instances allowed
@@ -40,7 +40,7 @@ public class DefaultCatalog extends CatalogImpl {
     @Override
     public final List<Schema> getSchemas() {
         return Arrays.asList(
-            SpringBoot.SPRING_BOOT
+            SpringBoot.T_SPRING_BOOT
         );
     }
 

@@ -4,7 +4,7 @@
 package cn.linmt.jooq.generate;
 
 
-import cn.linmt.jooq.generate.tables.Book;
+import cn.linmt.jooq.generate.tables.TableBook;
 
 import java.util.Arrays;
 import java.util.List;
@@ -25,12 +25,12 @@ public class SpringBoot extends SchemaImpl {
     /**
      * The reference instance of <code>spring_boot</code>
      */
-    public static final SpringBoot SPRING_BOOT = new SpringBoot();
+    public static final SpringBoot T_SPRING_BOOT = new SpringBoot();
 
     /**
      * The table <code>spring_boot.book</code>.
      */
-    public final Book BOOK = Book.BOOK;
+    public final TableBook T_BOOK = TableBook.T_BOOK;
 
     /**
      * No further instances allowed
@@ -48,7 +48,7 @@ public class SpringBoot extends SchemaImpl {
     @Override
     public final List<Table<?>> getTables() {
         return Arrays.asList(
-            Book.BOOK
+            TableBook.T_BOOK
         );
     }
 }

@@ -15,7 +15,8 @@ public class JooqRecordListener implements RecordListener {
 
   @Override
   public void insertStart(RecordContext ctx) {
-    ctx.record().setValue(DSL.field("id"), ThreadLocalRandom.current().nextLong());
+    ctx.record()
+        .setValue(DSL.field("id"), ThreadLocalRandom.current().nextLong(0L, Long.MAX_VALUE));
     ctx.record().setValue(DSL.field("created_by"), 1);
     ctx.record().setValue(DSL.field("modified_by"), 2);
     ctx.record().setValue(DSL.field("gmt_created"), LocalDateTime.now());

@@ -5,7 +5,6 @@ import static cn.linmt.jooq.generate.Tables.T_BOOK;
 import cn.linmt.jooq.generate.tables.records.BookRecord;
 import lombok.RequiredArgsConstructor;
 import org.jooq.DSLContext;
-import org.jooq.types.ULong;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -24,7 +23,7 @@ public class JooqApplication implements CommandLineRunner {
   public void run(String... args) {
     BookRecord bookRecord = dslContext.newRecord(T_BOOK);
     bookRecord.setBookName("书名");
-    bookRecord.setAuthorId(ULong.valueOf(999L));
+    bookRecord.setAuthorId(999L);
     bookRecord.insert();
   }
 }

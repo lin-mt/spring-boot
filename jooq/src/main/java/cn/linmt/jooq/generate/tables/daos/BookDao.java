@@ -14,7 +14,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.jooq.Configuration;
-import org.jooq.types.ULong;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -24,7 +23,7 @@ import org.springframework.stereotype.Repository;
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 @Repository
-public class BookDao extends AbstractSpringDAOImpl<BookRecord, Book, ULong> {
+public class BookDao extends AbstractSpringDAOImpl<BookRecord, Book, Long> {
 
     /**
      * Create a new BookDao without any configuration
@@ -42,7 +41,7 @@ public class BookDao extends AbstractSpringDAOImpl<BookRecord, Book, ULong> {
     }
 
     @Override
-    public ULong getId(Book object) {
+    public Long getId(Book object) {
         return object.getId();
     }
 
@@ -50,28 +49,28 @@ public class BookDao extends AbstractSpringDAOImpl<BookRecord, Book, ULong> {
      * Fetch records that have <code>id BETWEEN lowerInclusive AND
      * upperInclusive</code>
      */
-    public List<Book> fetchRangeOfId(ULong lowerInclusive, ULong upperInclusive) {
+    public List<Book> fetchRangeOfId(Long lowerInclusive, Long upperInclusive) {
         return fetchRange(TableBook.T_BOOK.T_ID, lowerInclusive, upperInclusive);
     }
 
     /**
      * Fetch records that have <code>id IN (values)</code>
      */
-    public List<Book> fetchById(ULong... values) {
+    public List<Book> fetchById(Long... values) {
         return fetch(TableBook.T_BOOK.T_ID, values);
     }
 
     /**
      * Fetch a unique record that has <code>id = value</code>
      */
-    public Book fetchOneById(ULong value) {
+    public Book fetchOneById(Long value) {
         return fetchOne(TableBook.T_BOOK.T_ID, value);
     }
 
     /**
      * Fetch a unique record that has <code>id = value</code>
      */
-    public Optional<Book> fetchOptionalById(ULong value) {
+    public Optional<Book> fetchOptionalById(Long value) {
         return fetchOptional(TableBook.T_BOOK.T_ID, value);
     }
 
@@ -94,14 +93,14 @@ public class BookDao extends AbstractSpringDAOImpl<BookRecord, Book, ULong> {
      * Fetch records that have <code>author_id BETWEEN lowerInclusive AND
      * upperInclusive</code>
      */
-    public List<Book> fetchRangeOfAuthorId(ULong lowerInclusive, ULong upperInclusive) {
+    public List<Book> fetchRangeOfAuthorId(Long lowerInclusive, Long upperInclusive) {
         return fetchRange(TableBook.T_BOOK.T_AUTHOR_ID, lowerInclusive, upperInclusive);
     }
 
     /**
      * Fetch records that have <code>author_id IN (values)</code>
      */
-    public List<Book> fetchByAuthorId(ULong... values) {
+    public List<Book> fetchByAuthorId(Long... values) {
         return fetch(TableBook.T_BOOK.T_AUTHOR_ID, values);
     }
 
@@ -109,14 +108,14 @@ public class BookDao extends AbstractSpringDAOImpl<BookRecord, Book, ULong> {
      * Fetch records that have <code>created_by BETWEEN lowerInclusive AND
      * upperInclusive</code>
      */
-    public List<Book> fetchRangeOfCreatedBy(ULong lowerInclusive, ULong upperInclusive) {
+    public List<Book> fetchRangeOfCreatedBy(Long lowerInclusive, Long upperInclusive) {
         return fetchRange(TableBook.T_BOOK.T_CREATED_BY, lowerInclusive, upperInclusive);
     }
 
     /**
      * Fetch records that have <code>created_by IN (values)</code>
      */
-    public List<Book> fetchByCreatedBy(ULong... values) {
+    public List<Book> fetchByCreatedBy(Long... values) {
         return fetch(TableBook.T_BOOK.T_CREATED_BY, values);
     }
 
@@ -124,14 +123,14 @@ public class BookDao extends AbstractSpringDAOImpl<BookRecord, Book, ULong> {
      * Fetch records that have <code>modified_by BETWEEN lowerInclusive AND
      * upperInclusive</code>
      */
-    public List<Book> fetchRangeOfModifiedBy(ULong lowerInclusive, ULong upperInclusive) {
+    public List<Book> fetchRangeOfModifiedBy(Long lowerInclusive, Long upperInclusive) {
         return fetchRange(TableBook.T_BOOK.T_MODIFIED_BY, lowerInclusive, upperInclusive);
     }
 
     /**
      * Fetch records that have <code>modified_by IN (values)</code>
      */
-    public List<Book> fetchByModifiedBy(ULong... values) {
+    public List<Book> fetchByModifiedBy(Long... values) {
         return fetch(TableBook.T_BOOK.T_MODIFIED_BY, values);
     }
 

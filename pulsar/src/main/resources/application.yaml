@@ -1,0 +1,10 @@
+spring:
+  pulsar:
+    producer:
+      name: spring-boot-producer
+    consumer:
+      name: spring-boot-consumer
+    client:
+      service-url: pulsar://localhost:6650
+server:
+  port: 9090

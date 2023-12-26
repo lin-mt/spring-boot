@@ -27,7 +27,6 @@ import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
 import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
-import org.jooq.types.ULong;
 
 
 /**
@@ -54,7 +53,7 @@ public class TableBook extends TableImpl<BookRecord> {
     /**
      * The column <code>spring_boot.book.id</code>. 主键ID
      */
-    public final TableField<BookRecord, ULong> T_ID = createField(DSL.name("id"), SQLDataType.BIGINTUNSIGNED.nullable(false), this, "主键ID");
+    public final TableField<BookRecord, Long> T_ID = createField(DSL.name("id"), SQLDataType.BIGINT.nullable(false), this, "主键ID");
 
     /**
      * The column <code>spring_boot.book.book_name</code>. 书名
@@ -64,17 +63,17 @@ public class TableBook extends TableImpl<BookRecord> {
     /**
      * The column <code>spring_boot.book.author_id</code>. 作者ID
      */
-    public final TableField<BookRecord, ULong> T_AUTHOR_ID = createField(DSL.name("author_id"), SQLDataType.BIGINTUNSIGNED.nullable(false), this, "作者ID");
+    public final TableField<BookRecord, Long> T_AUTHOR_ID = createField(DSL.name("author_id"), SQLDataType.BIGINT.nullable(false), this, "作者ID");
 
     /**
      * The column <code>spring_boot.book.created_by</code>. 创建者
      */
-    public final TableField<BookRecord, ULong> T_CREATED_BY = createField(DSL.name("created_by"), SQLDataType.BIGINTUNSIGNED.nullable(false), this, "创建者");
+    public final TableField<BookRecord, Long> T_CREATED_BY = createField(DSL.name("created_by"), SQLDataType.BIGINT.nullable(false), this, "创建者");
 
     /**
      * The column <code>spring_boot.book.modified_by</code>. 更新者
      */
-    public final TableField<BookRecord, ULong> T_MODIFIED_BY = createField(DSL.name("modified_by"), SQLDataType.BIGINTUNSIGNED, this, "更新者");
+    public final TableField<BookRecord, Long> T_MODIFIED_BY = createField(DSL.name("modified_by"), SQLDataType.BIGINT, this, "更新者");
 
     /**
      * The column <code>spring_boot.book.gmt_created</code>. 创建时间
@@ -173,14 +172,14 @@ public class TableBook extends TableImpl<BookRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row7<ULong, String, ULong, ULong, ULong, LocalDateTime, LocalDateTime> fieldsRow() {
+    public Row7<Long, String, Long, Long, Long, LocalDateTime, LocalDateTime> fieldsRow() {
         return (Row7) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function7<? super ULong, ? super String, ? super ULong, ? super ULong, ? super ULong, ? super LocalDateTime, ? super LocalDateTime, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function7<? super Long, ? super String, ? super Long, ? super Long, ? super Long, ? super LocalDateTime, ? super LocalDateTime, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -188,7 +187,7 @@ public class TableBook extends TableImpl<BookRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function7<? super ULong, ? super String, ? super ULong, ? super ULong, ? super ULong, ? super LocalDateTime, ? super LocalDateTime, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function7<? super Long, ? super String, ? super Long, ? super Long, ? super Long, ? super LocalDateTime, ? super LocalDateTime, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }

@@ -1,5 +1,6 @@
 package cn.linmt.pulsar.producer;
 
+import cn.linmt.pulsar.entity.User;
 import java.time.LocalDateTime;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -15,14 +16,14 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class StringProducer {
+public class UserProducer {
 
-  private final PulsarTemplate<String> template;
+  private final PulsarTemplate<User> template;
 
-  @Scheduled(cron = "*/3 * * * * ?")
+  @Scheduled(cron = "*/5 * * * * ?")
   public void producer() throws PulsarClientException {
-    LocalDateTime message = LocalDateTime.now();
-    MessageId messageId = template.send("STRING_TOPIC", message.toString());
-    log.info("producer messageId:{}，message:{}", messageId, message);
+    User user = new User().setFirstName("firstName").setEmail(LocalDateTime.now().toString());
+    MessageId messageId = template.send("USER_TOPIC", user);
+    log.info("producer messageId:{}，message:{}", messageId, user);
   }
 }

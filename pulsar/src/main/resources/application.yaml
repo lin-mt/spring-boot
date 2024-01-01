@@ -6,5 +6,7 @@ spring:
       name: spring-boot-consumer
     client:
       service-url: pulsar://localhost:6650
-server:
-  port: 9090
+      authentication:
+        plugin-class-name: org.apache.pulsar.client.impl.auth.AuthenticationToken
+        param:
+          token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiJ9.CqAbQW0-35E0Xg_7IwMqQuOdu1bAAH7LiP5QI-zZeXU
